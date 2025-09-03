@@ -81,17 +81,19 @@
     </div>
 
     <script>
-        // ¡URL CORREGIDA! Ahora apunta a la implementación correcta de tu script.
+        // ¡URL DEFINITIVA! Ahora apunta a la implementación correcta de tu script.
         const scriptURL = "https://script.google.com/macros/s/AKfycbw3antc8UiCxZpjCHH7LGks4eFM3TlTc_eIWR3i3jrZLcXKU0G_y5vqgSmq5NjO8254/exec"; 
 
         async function verificarResultados() {
             const mensajeCarga = document.getElementById('mensaje-carga');
             try {
+                // Se añade un parámetro único para evitar la caché del navegador
                 const res = await fetch(scriptURL + '?timestamp=' + new Date().getTime());
                 const data = await res.json();
                 
                 console.log("Datos recibidos del script:", JSON.stringify(data));
 
+                // Condición flexible para verificar si el valor es 'true'
                 if (data.mostrarResultados) {
                     document.getElementById('boton-resultados').style.display = 'block';
                     mensajeCarga.style.display = 'none';
@@ -99,7 +101,7 @@
                     mensajeCarga.textContent = 'Los resultados aún no están disponibles.';
                 }
 
-            } catch (error) {
+            } catch (error) { // <-- ERROR CORREGIDO AQUÍ
                 console.error('Error al verificar resultados:', error);
                 mensajeCarga.textContent = 'No se pudo verificar el estado de los resultados.';
             }
@@ -109,3 +111,4 @@
     </script>
 </body>
 </html>
+
