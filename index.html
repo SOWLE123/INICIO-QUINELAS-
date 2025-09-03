@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Quinelas de la Fuente</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Soccer_field_-_empty.svg/2048px-Soccer_field_-_empty.svg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .overlay {
+            background-color: rgba(13, 17, 23, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 600px;
+            width: 90%;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(46, 160, 67, 0.5);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        .boton {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            margin: 15px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+        }
+        .boton:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+        }
+        #boton-pagos { background-color: #007bff; }
+        #boton-quiniela { background-color: #2ea043; }
+        #boton-resultados { background-color: #f0ad4e; display: none; } /* Oculto por defecto */
+        
+        .cargando {
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h1>Quinelas de la Fuente</h1>
+        <p>¡La quiniela donde compites, te diviertes y ganas!</p>
+        
+        <a id="boton-pagos" class="boton" href="https://sowle123.github.io/PAGOS-QUINELAS-/">Paso 1: Pagar y Obtener Código</a>
+        <a id="boton-quiniela" class="boton" href="https://sowle123.github.io/QUINELAS-DE-LA-FUENTE-/">Paso 2: Llenar tu Quiniela</a>
+        <a id="boton-resultados" class="boton" href="https://sowle123.github.io/QUINELALO/">Ver Resultados de la Jornada</a>
+        
+        <p id="mensaje-carga" class="cargando">Verificando estado de los resultados...</p>
+    </div>
+
+    <script>
+        // La URL del script se ha actualizado con el valor correcto.
+        const scriptURL = "https://script.google.com/macros/s/AKfycbyrzyo2GUxbTF4IN7DMo59t7MDbV_JJN3x3fXyvamm0fRymA2xp7_DecZAXXjDu1KPI/exec"; 
+
+        async function verificarResultados() {
+            const mensajeCarga = document.getElementById('mensaje-carga');
+            try {
+                const res = await fetch(scriptURL);
+                const data = await res.json();
+
+                if (data.mostrarResultados === true) {
+                    document.getElementById('boton-resultados').style.display = 'block';
+                    mensajeCarga.style.display = 'none'; // Oculta el mensaje de carga
+                } else {
+                    mensajeCarga.textContent = 'Los resultados aún no están disponibles.';
+                }
+
+            } catch (error) {
+                console.error('Error al verificar resultados:', error);
+                mensajeCarga.textContent = 'No se pudo verificar el estado de los resultados.';
+            }
+        }
+
+        // Ejecuta la función cuando la página cargue
+        window.addEventListener('load', verificarResultados);
