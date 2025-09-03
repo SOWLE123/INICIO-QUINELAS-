@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido a Quinelas de la Fuente</title>
+    <!-- Se añade una tipografía más deportiva desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            /* Se cambia la fuente a 'Oswald' para un look más deportivo */
+            font-family: 'Oswald', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #0d1117;
@@ -22,93 +27,90 @@
             background-repeat: no-repeat;
         }
         .overlay {
-            background-color: rgba(13, 17, 23, 0.85);
-            padding: 40px;
+            background-color: rgba(13, 17, 23, 0.9); /* Un poco más oscuro para resaltar el contenido */
+            padding: 30px 40px;
             border-radius: 15px;
+            border: 1px solid #30363d;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             max-width: 600px;
             width: 90%;
         }
+        /* Nuevo estilo para el logo de la Liga MX */
+        .logo-liga {
+            width: 120px;
+            margin-bottom: 20px;
+        }
         h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             color: #fff;
+            margin-top: 0;
             margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(46, 160, 67, 0.5);
+            text-transform: uppercase; /* Convertimos a mayúsculas */
+            text-shadow: 0 0 15px rgba(46, 160, 67, 0.6);
         }
         p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
+            font-family: 'Segoe UI', Roboto, sans-serif; /* Fuente más legible para párrafos */
+            font-size: 1.1em;
+            margin-bottom: 30px;
         }
         .boton {
-            display: block;
+            display: flex; /* Cambiado para alinear el ícono y el texto */
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Espacio entre el ícono y el texto */
             width: 100%;
             padding: 15px 0;
             margin: 15px 0;
             font-size: 1.2em;
             font-weight: bold;
+            text-transform: uppercase;
             color: #fff;
             text-decoration: none;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
             box-sizing: border-box;
         }
         .boton:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
-        #boton-pagos { background-color: #007bff; }
-        #boton-quiniela { background-color: #2ea043; }
-        #boton-resultados { background-color: #f0ad4e; display: none; } /* Oculto por defecto */
-        
-        .cargando {
-            font-style: italic;
-            color: #888;
+        /* Estilo para el ícono del balón */
+        .boton svg {
+            width: 24px;
+            height: 24px;
         }
+        #boton-pagos { background: linear-gradient(45deg, #005bea, #00c6fb); }
+        #boton-quiniela { background: linear-gradient(45deg, #1d976c, #93f9b9); }
+        #boton-resultados { background: linear-gradient(45deg, #f09819, #edde5d); display: block; } 
     </style>
 </head>
 <body>
     <div class="overlay">
+        <!-- Se añade el logo de la Liga MX -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Liga_MX_logo.svg/1200px-Liga_MX_logo.svg.png" alt="Logo Liga MX" class="logo-liga">
         <h1>Quinelas de la Fuente</h1>
         <p>¡La quiniela donde compites, te diviertes y ganas!</p>
         
-        <a id="boton-pagos" class="boton" href="https://sowle123.github.io/PAGOS-QUINELAS-/">Paso 1: Pagar y Obtener Código</a>
-        <a id="boton-quiniela" class="boton" href="https://sowle123.github.io/QUINELAS-DE-LA-FUENTE-/">Paso 2: Llenar tu Quiniela</a>
-        <a id="boton-resultados" class="boton" href="https://sowle123.github.io/QUINELALO/">Ver Resultados de la Jornada</a>
+        <a id="boton-pagos" class="boton" href="https://sowle123.github.io/PAGOS-QUINELAS-/">
+            <!-- Icono de Balón SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM152 120c-13.3 0-24 10.7-24 24s10.7 24 24 24h32c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32zm8-48c0-13.3-10.7-24-24-24s-24 10.7-24 24v32c0 13.3 10.7 24 24 24s24-10.7 24-24V72zm80 288c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24s10.7 24 24 24h32zm-8 48c0 13.3 10.7 24 24 24s24-10.7 24-24v-32c0-13.3-10.7-24-24-24s-24 10.7-24 24v32zm144-128c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24s10.7 24 24 24h32zm-8 48c0 13.3 10.7 24 24 24s24-10.7 24-24v-32c0-13.3-10.7-24-24-24s-24 10.7-24 24v32zM280 72c0-13.3-10.7-24-24-24s-24 10.7-24 24v32c0 13.3 10.7 24 24 24s24-10.7 24-24V72zm-32-48c13.3 0 24 10.7 24 24s-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24s10.7-24 24-24h32zM368 120c-13.3 0-24 10.7-24 24s10.7 24 24 24h32c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32zm8-48c0-13.3-10.7-24-24-24s-24 10.7-24 24v32c0 13.3 10.7 24 24 24s24-10.7 24-24V72z"/></svg>
+            Pagar y Obtener Código
+        </a>
         
-        <p id="mensaje-carga" class="cargando">Verificando estado de los resultados...</p>
+        <a id="boton-quiniela" class="boton" href="https://sowle123.github.io/QUINELAS-DE-LA-FUENTE-/">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM152 120c-13.3 0-24 10.7-24 24s10.7 24 24 24h32c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32zm8-48c0-13.3-10.7-24-24-24s-24 10.7-24 24v32c0 13.3 10.7 24 24 24s24-10.7 24-24V72zm80 288c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24s10.7 24 24 24h32zm-8 48c0 13.3 10.7 24 24 24s24-10.7 24-24v-32c0-13.3-10.7-24-24-24s-24 10.7-24 24v32zm144-128c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24s10.7 24 24 24h32zm-8 48c0 13.3 10.7 24 24 24s24-10.7 24-24v-32c0-13.3-10.7-24-24-24s-24 10.7-24 24v32zM280 72c0-13.3-10.7-24-24-24s-24 10.7-24 24v32c0 13.3 10.7 24 24 24s24-10.7 24-24V72zm-32-48c13.3 0 24 10.7 24 24s-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24s10.7-24 24-24h32zM368 120c-13.3 0-24 10.7-24 24s10.7 24 24 24h32c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32zm8-48c0-13.3-10.7-24-24-24s-24 10.7-24 24v32c0 13.3 10.7 24 24 24s24-10.7 24-24V72z"/></svg>
+            Llenar tu Quiniela
+        </a>
+        
+        <a id="boton-resultados" class="boton" href="https://sowle123.github.io/QUINELALO/">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM152 120c-13.3 0-24 10.7-24 24s10.7 24 24 24h32c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32zm8-48c0-13.3-10.7-24-24-24s-24 10.7-24 24v32c0 13.3 10.7 24 24 24s24-10.7 24-24V72zm80 288c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24s10.7 24 24 24h32zm-8 48c0 13.3 10.7 24 24 24s24-10.7 24-24v-32c0-13.3-10.7-24-24-24s-24 10.7-24 24v32zm144-128c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24s10.7 24 24 24h32zm-8 48c0 13.3 10.7 24 24 24s24-10.7 24-24v-32c0-13.3-10.7-24-24-24s-24 10.7-24 24v32zM280 72c0-13.3-10.7-24-24-24s-24 10.7-24 24v32c0 13.3 10.7 24 24 24s24-10.7 24-24V72zm-32-48c13.3 0 24 10.7 24 24s-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24s10.7-24 24-24h32zM368 120c-13.3 0-24 10.7-24 24s10.7 24 24 24h32c13.3 0 24-10.7 24-24s-10.7-24-24-24h-32zm8-48c0-13.3-10.7-24-24-24s-24 10.7-24 24v32c0 13.3 10.7 24 24 24s24-10.7 24-24V72z"/></svg>
+            Ver Resultados
+        </a>
     </div>
 
-    <script>
-        // ¡URL DEFINITIVA! Ahora apunta a la implementación correcta de tu script.
-        const scriptURL = "https://script.google.com/macros/s/AKfycbw3antc8UiCxZpjCHH7LGks4eFM3TlTc_eIWR3i3jrZLcXKU0G_y5vqgSmq5NjO8254/exec"; 
-
-        async function verificarResultados() {
-            const mensajeCarga = document.getElementById('mensaje-carga');
-            try {
-                // Se añade un parámetro único para evitar la caché del navegador
-                const res = await fetch(scriptURL + '?timestamp=' + new Date().getTime());
-                const data = await res.json();
-                
-                console.log("Datos recibidos del script:", JSON.stringify(data));
-
-                // Condición flexible para verificar si el valor es 'true'
-                if (data.mostrarResultados) {
-                    document.getElementById('boton-resultados').style.display = 'block';
-                    mensajeCarga.style.display = 'none';
-                } else {
-                    mensajeCarga.textContent = 'Los resultados aún no están disponibles.';
-                }
-
-            } catch (error) { // <-- ERROR CORREGIDO AQUÍ
-                console.error('Error al verificar resultados:', error);
-                mensajeCarga.textContent = 'No se pudo verificar el estado de los resultados.';
-            }
-        }
-
-        window.addEventListener('load', verificarResultados);
-    </script>
 </body>
 </html>
+
 
